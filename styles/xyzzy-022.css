@@ -1,0 +1,61 @@
+@charset 'UTF-8';
+
+#page { position: relative; }
+.ribbon { position: absolute; top: -1px; right: -1px; opacity: 0.9; }
+.ribbon:hover, .ribbon:focus, .ribbon:active { opacity: 1; }
+.ribbon img { display: block; border: 0; }
+
+#sns {
+  height: 16px;
+}
+
+h1 {
+  font-size: 30pt;
+}
+
+h2 {
+  font-size: 16pt;
+  margin: 40px auto 10px auto;
+}
+
+h1, h2, h3, h4, h5, h6, .download * {
+ font-family: Palatino, georgia, "times new roman", 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+.download {
+  margin-top: 0;
+  margin-bottom: 100px;
+}
+
+.download img {
+  border-style: none;
+  display: block;
+  width: 96px;
+  margin-left: 40px;
+}
+
+.download .version {
+  display: block;
+  font-size: 25pt;
+  margin-left: 25px;
+}
+
+.download .release-note {
+  display: block;
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.screenshot {
+  float: right;
+  padding-top: 20px;
+  padding-left: 10px;
+  width: 420px;
+}
+
+.feed-icon {
+  height: 12px;
+  width: 12px;
+  opacity: 0.9;
+}

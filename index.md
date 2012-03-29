@@ -1,46 +1,51 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: xyzzy
+top: カスタマイズ可能で軽快な Windows 用テキストエディタ
+keywords: xyzzy, common lisp, Windows, テキストエディタ
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+<img class="screenshot" src="images/xyzzy.png" />
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+xyzzy はカスタマイズ可能で軽快な Windows 用のテキストエディタのようなものです。
+作者も使ったことのないような機能を満載しています。
 
-## Update Author Attributes
+<div class="download">
+<a href="https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-0.2.2.236.zip">
+<img src="images/download-128.png"/>
+<span class="version">0.2.2.236</span></a>
+<a class="release-note" href="/xyzzy/2012/03/29/xyzzy-0_2_2_236-release-note/">リリースノート</a>
+</div>
 
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+xyzzy は [亀井哲弥氏](http://www.jsdlab.co.jp/~kamei/) よって開発された Emacs ライクなテキストエディタです。
+Common Lisp にほぼ準拠した言語で拡張可能であり、多くの機能が Lisp によって実装されています。
 
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
+他にも以下のような特徴があります。
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+  * 使いやすい 2 画面ファイラー
+  * 複素数や「人生、宇宙、すべての答え」を計算できる [電卓]
+  * COM・FFI (Foreign Function Interface; DLL 呼び出し) による他の Windows プログラムの制御
+  * [Twitter クライアント]、[2ch クライアント]、五目並べなどの暇つぶしツール
+  * 軽快な動作
+  * その他いろいろ
 
-    $ rm -rf _posts/core-samples
+  [電卓]: http://xyzzy.s53.xrea.com/wiki/index.php?Calc-mode%A4%CEManual
+  [Twitter クライアント]: http://www.moongift.jp/2011/10/20111025-2/
+  [2ch クライアント]: http://www7a.biglobe.ne.jp/~hat/xyzzy/2ch-mode.html
 
-Here's a sample "posts list".
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## To-Do
-
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
+初めて利用する場合は [xyzzy Wiki の QuickTour](http://xyzzy.s53.xrea.com/wiki/index.php?QuickTour) をご覧下さい。
 
 
+## License
+
+フリーなソフトウェア改め、MIT ライセンスで公開しています。
+
+現在は亀井氏に代わり有志により開発が継続しています。
+
+
+## Contact
+
+  * Twitter: [@x022235](https://twitter.com/#!/x022235)
+  * Mail: <x022235@gmail.com>
+  * GitHub: <https://github.com/xyzzy-022/xyzzy>
