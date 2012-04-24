@@ -6,7 +6,30 @@
 .ribbon img { display: block; border: 0; }
 
 #sns {
-  height: 16px;
+  height 40px;
+}
+
+#sns li {
+  display: inline;
+}
+
+#sns .twitter {
+  float: left;
+  width: 100px;
+}
+
+#sns .facebook {
+  float: left;
+  width: 120px;
+}
+
+#sns .google-plusone {
+  float: left;
+  width: 80px;
+}
+
+#sns .hatena-bookmark {
+  width: 80px;
 }
 
 h1 {
