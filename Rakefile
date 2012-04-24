@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 require "rubygems"
 require 'rake'
 require 'yaml'
@@ -99,6 +101,59 @@ desc "Launch preview environment"
 task :preview do
   system "jekyll --auto --server"
 end # task :preview
+
+# Usage: rake relnote file=../xyzzy/docs/release-note-0.2.2.238.md zip=../xyzzy/_dist/xyzzy-0.2.2.238.zip
+desc "Copy release note to #{CONFIG['posts']}"
+task :relnote do
+  abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
+  file = ENV["file"] || abort("file not specified")
+  zip = ENV["zip"]
+  _, header, body = File.read(file).split("\n\n", 3)
+  date = header[/\d+-\d+-\d+/, 0]
+  version = header[/\d+\.\d+\.\d+\.\d+/, 0]
+  sha1 = Digest::SHA1.file(zip).hexdigest if zip
+
+  filename = File.join(CONFIG['posts'], "#{date}-xyzzy-#{version.gsub(/\./, "_")}-release-note.#{CONFIG['post_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: xyzzy #{version} リリースノート"
+    post.puts "category: xyzzy"
+    post.puts "tags: []"
+    post.puts "---"
+    post.puts "{% include JB/setup %}"
+    post.puts
+    post.puts header
+    post.puts "  * SHA1 チェックサム: `#{sha1}`" if zip
+    post.puts
+    issues = []
+    in_code = false
+    body.each do |line|
+      if line =~ /^ *```/
+        in_code = !in_code
+        next
+      end
+      if in_code
+        line = "    " + line unless line =~ /^ *$/
+      else
+        line = line.gsub(/#([0-9]+)/) {
+          issue = $1.to_i
+          issues << issue
+          "[#%s]" % issue
+        }
+      end
+      post.puts line
+    end
+    issues.sort.uniq.each do |issue|
+      post.puts "  [#%s]: https://github.com/xyzzy-022/xyzzy/issues/%s" % [issue, issue]
+    end
+  end
+end # task :post
 
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
