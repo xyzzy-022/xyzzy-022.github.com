@@ -1,4 +1,5 @@
 require 'digest/sha1'
+require 'json'
 
 require "rubygems"
 require 'rake'
@@ -129,6 +130,7 @@ task :relnote do
     post.puts "{% include JB/setup %}"
     post.puts
     post.puts header
+    post.puts "  * ダウンロード: <https://github.com/downloads/xyzzy-022/xyzzy/#{File.basename(zip)}>" if zip
     post.puts "  * SHA1 チェックサム: `#{sha1}`" if zip
     post.puts
     issues = []
@@ -153,7 +155,31 @@ task :relnote do
       post.puts "  [#%s]: https://github.com/xyzzy-022/xyzzy/issues/%s" % [issue, issue]
     end
   end
-end # task :post
+end # task :relnote
+
+task :latest_info do
+  file = ENV["file"] || abort("file not specified")
+  zip = ENV["zip"]
+  relnote_contents = File.read(file)
+  _, header, body = relnote_contents.split("\n\n", 3)
+  date = header[/\d+-\d+-\d+/, 0].gsub(/-/, "/")
+  version = header[/\d+\.\d+\.\d+\.\d+/, 0]
+  sha1 = Digest::SHA1.file(zip).hexdigest if zip
+  relnote_url = "#{date}/xyzzy-#{version.gsub(/\./, "_")}-release-note"
+  latest_info = {
+    "version" => version,
+    "sha1" => sha1,
+    "archive_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{File.basename(zip)}",
+    "release_note_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{relnote_url}",
+    "release_note" => relnote_contents,
+  }
+
+  open("latest.json", "w") do |latest|
+    latest.puts JSON.pretty_generate(latest_info)
+  end
+end # task :latest_info
+
+task :release => [:relnote, :latest_info]
 
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
