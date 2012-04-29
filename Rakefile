@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 require 'digest/sha1'
 require 'json'
 
@@ -109,7 +111,7 @@ task :relnote do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
   file = ENV["file"] || abort("file not specified")
   zip = ENV["zip"]
-  _, header, body = File.read(file).split("\n\n", 3)
+  _, header, body = File.read(file, :encoding => "utf-8").split("\n\n", 3)
   date = header[/\d+-\d+-\d+/, 0]
   version = header[/\d+\.\d+\.\d+\.\d+/, 0]
   sha1 = Digest::SHA1.file(zip).hexdigest if zip
@@ -135,7 +137,7 @@ task :relnote do
     post.puts
     issues = []
     in_code = false
-    body.each do |line|
+    body.each_line do |line|
       if line =~ /^ *```/
         in_code = !in_code
         next
@@ -160,21 +162,21 @@ end # task :relnote
 task :latest_info do
   file = ENV["file"] || abort("file not specified")
   zip = ENV["zip"]
-  relnote_contents = File.read(file)
+  relnote_contents = File.read(file, :encoding => "utf-8")
   _, header, body = relnote_contents.split("\n\n", 3)
   date = header[/\d+-\d+-\d+/, 0].gsub(/-/, "/")
   version = header[/\d+\.\d+\.\d+\.\d+/, 0]
   sha1 = Digest::SHA1.file(zip).hexdigest if zip
-  relnote_url = "#{date}/xyzzy-#{version.gsub(/\./, "_")}-release-note"
+  relnote_url = "#{date}/xyzzy-#{version.gsub(/\./, "_")}-release-note/"
   latest_info = {
     "version" => version,
-    "sha1" => sha1,
+    "archive_sha1" => sha1,
     "archive_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{File.basename(zip)}",
-    "release_note_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{relnote_url}",
     "release_note" => relnote_contents,
+    "release_note_url" => "http://xyzzy-022.github.com/xyzzy/#{relnote_url}",
   }
 
-  open("latest.json", "w") do |latest|
+  open("latest.json", "w:utf-8") do |latest|
     latest.puts JSON.pretty_generate(latest_info)
   end
 end # task :latest_info
