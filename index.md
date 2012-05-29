@@ -12,10 +12,10 @@ xyzzy はカスタマイズ可能で軽快な Windows 用のテキストエデ�
 作者も使ったことのないような機能を満載しています。
 
 <div class="download">
-<a href="https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-0.2.2.239.zip">
+<a href="https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-0.2.2.240.zip">
 <img src="images/download-128.png"/>
-<span class="version">0.2.2.239</span></a>
-<a class="release-note" href="/xyzzy/2012/05/29/xyzzy-0_2_2_239-release-note/">リリースノート</a>
+<span class="version">0.2.2.240</span></a>
+<a class="release-note" href="/xyzzy/2012/05/29/xyzzy-0_2_2_240-release-note/">リリースノート</a>
 </div>
 
 xyzzy は [亀井哲弥氏](http://www.jsdlab.co.jp/~kamei/) よって開発された Emacs ライクなテキストエディタです。
