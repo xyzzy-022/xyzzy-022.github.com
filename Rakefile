@@ -172,10 +172,14 @@ task :latest_info do
   version = header[/\d+\.\d+\.\d+\.\d+/, 0]
   sha1 = Digest::SHA1.file(zip).hexdigest if zip
   relnote_url = "#{date}/xyzzy-#{version.gsub(/\./, "_")}-release-note/"
+  bin_zip = File.basename(zip)
+  src_zip = bin_zip.gsub(/xyzzy/, "xyzzy-src")
+
   latest_info = {
     "version" => version,
     "archive_sha1" => sha1,
-    "archive_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{File.basename(zip)}",
+    "archive_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{bin_zip}",
+    "archive_src_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{src_zip}",
     "release_note" => relnote_contents,
     "release_note_url" => "http://xyzzy-022.github.com/xyzzy/#{relnote_url}",
   }
