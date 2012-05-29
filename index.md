@@ -44,6 +44,12 @@ Common Lisp にほぼ準拠した言語で拡張可能であり、多くの機�
 現在は亀井氏に代わり有志により開発が継続しています。
 
 
+## Links
+
+  * [窓の杜 - xyzzy](http://www.forest.impress.co.jp/lib/offc/document/txteditor/xyzzy.html)
+  * [窓の杜 - 【NEWS】「Emacs」風テキストエディター「xyzzy」が6年ぶりのアップデート](http://www.forest.impress.co.jp/docs/news/20120330_522756.html)
+
+
 ## Contact
 
   * Twitter: [@x022235](https://twitter.com/#!/x022235)
