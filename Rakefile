@@ -121,6 +121,9 @@ task :relnote do
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
 
+  bin_zip = File.basename(zip)
+  src_zip = bin_zip.gsub(/xyzzy/, "xyzzy-src")
+
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
@@ -132,7 +135,8 @@ task :relnote do
     post.puts "{% include JB/setup %}"
     post.puts
     post.puts header
-    post.puts "  * ダウンロード: <https://github.com/downloads/xyzzy-022/xyzzy/#{File.basename(zip)}>" if zip
+    post.puts "  * ダウンロード: [#{bin_zip}](https://github.com/downloads/xyzzy-022/xyzzy/#{bin_zip})" if bin_zip
+    post.puts "    ([ソース](https://github.com/downloads/xyzzy-022/xyzzy/#{src_zip}))" if src_zip
     post.puts "  * SHA1 チェックサム: `#{sha1}`" if zip
     post.puts
     issues = []
