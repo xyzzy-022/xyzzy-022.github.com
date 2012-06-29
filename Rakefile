@@ -202,6 +202,7 @@ def parse_relnote
 
   latest_info = {
     "version" => version,
+    "date" => date.gsub(/\//, "-"),
     "archive_sha1" => sha1,
     "archive_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{bin_zip}",
     "archive_src_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{src_zip}",
