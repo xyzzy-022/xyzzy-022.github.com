@@ -167,7 +167,25 @@ task :update_latest_info do
   end
 end # task :latest_info
 
-task :release => [:update_relnote, :update_latest_info]
+task :update_index do
+  info, _ = parse_relnote
+  date = info["date"]
+  version = info["version"]
+  sha1 = info["archive_sha1"]
+  bin_zip = File.basename(info["archive_url"])
+  src_zip = File.basename(info["archive_src_url"])
+
+  index_md = File.read("index.md", :encoding => "utf-8")
+  index_md.sub!(/href="(https:\/\/github.com.*?\.zip)"/) { $&.sub($1, info["archive_url"]) }
+  index_md.sub!(/class="version">(.*?)<\/span>/) { $&.sub($1, info["version"]) }
+  index_md.sub!(/class="release-note" href="(.*?)"/) { $&.sub($1, info["release_note_url"]) }
+
+  open("index.md", "w:utf-8") do |w|
+    w.puts index_md
+  end
+end # task :update_index
+
+task :release => [:update_relnote, :update_latest_info, :update_index]
 
 def parse_relnote
   file = ENV["file"] || abort("file not specified")
