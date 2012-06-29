@@ -107,22 +107,19 @@ end # task :preview
 
 # Usage: rake relnote file=../xyzzy/docs/release-note-0.2.2.238.md zip=../xyzzy/_dist/xyzzy-0.2.2.238.zip
 desc "Copy release note to #{CONFIG['posts']}"
-task :relnote do
+task :update_relnote do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
-  file = ENV["file"] || abort("file not specified")
-  zip = ENV["zip"]
-  _, header, body = File.read(file, :encoding => "utf-8").split("\n\n", 3)
-  date = header[/\d+-\d+-\d+/, 0]
-  version = header[/\d+\.\d+\.\d+\.\d+/, 0]
-  sha1 = Digest::SHA1.file(zip).hexdigest if zip
+  info, header, body = parse_relnote
+  date = info["date"]
+  version = info["version"]
+  sha1 = info["archive_sha1"]
+  bin_zip = File.basename(info["archive_url"])
+  src_zip = File.basename(info["archive_src_url"])
 
   filename = File.join(CONFIG['posts'], "#{date}-xyzzy-#{version.gsub(/\./, "_")}-release-note.#{CONFIG['post_ext']}")
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
-
-  bin_zip = File.basename(zip)
-  src_zip = bin_zip.gsub(/xyzzy/, "xyzzy-src")
 
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
@@ -137,7 +134,7 @@ task :relnote do
     post.puts header
     post.puts "  * ダウンロード: [#{bin_zip}](https://github.com/downloads/xyzzy-022/xyzzy/#{bin_zip})" if bin_zip
     post.puts "    ([ソース](https://github.com/downloads/xyzzy-022/xyzzy/#{src_zip}))" if src_zip
-    post.puts "  * SHA1 チェックサム: `#{sha1}`" if zip
+    post.puts "  * SHA1 チェックサム: `#{sha1}`" if bin_zip
     post.puts
     issues = []
     in_code = false
@@ -163,15 +160,25 @@ task :relnote do
   end
 end # task :relnote
 
-task :latest_info do
+task :update_latest_info do
+  info, _ = parse_relnote
+  open("latest.json", "w:utf-8") do |latest|
+    latest.puts JSON.pretty_generate(info)
+  end
+end # task :latest_info
+
+task :release => [:update_relnote, :update_latest_info]
+
+def parse_relnote
   file = ENV["file"] || abort("file not specified")
-  zip = ENV["zip"]
+  zip = ENV["zip"] || abort("zip not specified")
+
   relnote_contents = File.read(file, :encoding => "utf-8")
   _, header, body = relnote_contents.split("\n\n", 3)
   date = header[/\d+-\d+-\d+/, 0].gsub(/-/, "/")
   version = header[/\d+\.\d+\.\d+\.\d+/, 0]
   sha1 = Digest::SHA1.file(zip).hexdigest if zip
-  relnote_url = "#{date}/xyzzy-#{version.gsub(/\./, "_")}-release-note/"
+  relnote_path = "#{date}/xyzzy-#{version.gsub(/\./, "_")}-release-note/"
   bin_zip = File.basename(zip)
   src_zip = bin_zip.gsub(/xyzzy/, "xyzzy-src")
 
@@ -181,15 +188,12 @@ task :latest_info do
     "archive_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{bin_zip}",
     "archive_src_url" => "https://github.com/downloads/xyzzy-022/xyzzy/#{src_zip}",
     "release_note" => relnote_contents,
-    "release_note_url" => "http://xyzzy-022.github.com/xyzzy/#{relnote_url}",
+    "release_note_url" => "http://xyzzy-022.github.com/xyzzy/#{relnote_path}",
   }
 
-  open("latest.json", "w:utf-8") do |latest|
-    latest.puts JSON.pretty_generate(latest_info)
-  end
-end # task :latest_info
+  [latest_info, header, body]
+end
 
-task :release => [:relnote, :latest_info]
 
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
