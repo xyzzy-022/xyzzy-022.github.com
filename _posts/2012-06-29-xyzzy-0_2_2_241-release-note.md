@@ -86,6 +86,8 @@ xyzzy Lisp 開発者向け機能追加
     * `char-encoding-type`
     * `char-encoding-signature`
 
+    例:
+
         (char-encoding-type *encoding-utf8*)
         => :utf8
 
