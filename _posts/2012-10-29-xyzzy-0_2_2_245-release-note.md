@@ -11,7 +11,7 @@ tags: []
   * ホームページ: <http://xyzzy-022.github.com>
   * ダウンロード: [xyzzy-0.2.2.245.zip](https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-0.2.2.245.zip)
     ([ソース](https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-src-0.2.2.245.zip))
-  * SHA1 チェックサム: `c0e1def96e3c6cae92b9dcaec95a74e915efa818`
+  * SHA1 チェックサム: `9382ab80ca8160e47b287030d493b9efc9f39d9d`
 
 
 インストール
