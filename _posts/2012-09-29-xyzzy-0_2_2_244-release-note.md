@@ -12,8 +12,8 @@ xyzzy リリースノート
   * バージョン: 0.2.2.244
   * リリース日: 2012-09-29
   * ホームページ: <http://xyzzy-022.github.com>
-  * ダウンロード: [xyzzy-0.2.2.244.zip](https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-0.2.2.244.zip)
-    ([ソース](https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-src-0.2.2.244.zip))
+  * ダウンロード: [xyzzy-0.2.2.244.zip](https://xyzzy-022.github.com/downloads/xyzzy-0.2.2.244.zip)
+    ([ソース](https://xyzzy-022.github.com/downloads/xyzzy-src-0.2.2.244.zip))
   * SHA1 チェックサム: `7b3ddba1c38713bf650285a4b073e20e7420ed17`
 
 

@@ -12,7 +12,7 @@ xyzzy はカスタマイズ可能で軽快な Windows 用のテキストエデ�
 作者も使ったことのないような機能を満載しています。
 
 <div class="download">
-<a href="https://github.com/downloads/xyzzy-022/xyzzy/xyzzy-0.2.2.246.zip">
+<a href="downloads/xyzzy-0.2.2.246.zip">
 <img src="images/download-128.png"/>
 <span class="version">0.2.2.246</span></a>
 <a class="release-note" href="http://xyzzy-022.github.com/xyzzy/2012/12/29/xyzzy-0_2_2_246-release-note/">リリースノート</a>
