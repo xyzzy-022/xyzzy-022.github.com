@@ -8,7 +8,7 @@ keywords: xyzzy, common lisp, Windows, テキストエディタ
 
 <img class="screenshot" src="images/xyzzy.png" />
 
- xyzzy はカスタマイズ可能で軽快な Windows 用のテキストエディタのようなものです。
+xyzzy はカスタマイズ可能で軽快な Windows 用のテキストエディタのようなものです。
 作者も使ったことのないような機能を満載しています。
 
 <div class="download">
