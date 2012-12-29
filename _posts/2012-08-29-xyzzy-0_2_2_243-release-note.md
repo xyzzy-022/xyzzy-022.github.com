@@ -4,8 +4,8 @@ xyzzy リリースノート
   * バージョン: 0.2.2.243
   * リリース日: 2012-08-29
   * ホームページ: <http://xyzzy-022.github.com>
-  * ダウンロード: [xyzzy-0.2.2.243.zip](https://xyzzy-022.github.com/downloads/xyzzy-0.2.2.243.zip)
-    ([ソース](https://xyzzy-022.github.com/downloads/xyzzy-src-0.2.2.243.zip))
+  * ダウンロード: [xyzzy-0.2.2.243.zip](http://xyzzy-022.github.com/downloads/xyzzy-0.2.2.243.zip)
+    ([ソース](http://xyzzy-022.github.com/downloads/xyzzy-src-0.2.2.243.zip))
   * SHA1 チェックサム: `c02f82360cda2a1e2a8038d609f8080279d9f986`
 
 

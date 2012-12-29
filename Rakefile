@@ -132,8 +132,8 @@ task :update_relnote do
     post.puts "{% include JB/setup %}"
     post.puts
     post.puts header
-    post.puts "  * ダウンロード: [#{bin_zip}](https://xyzzy-022.github.com/downloads/#{bin_zip})" if bin_zip
-    post.puts "    ([ソース](https://xyzzy-022.github.com/downloads/#{src_zip}))" if src_zip
+    post.puts "  * ダウンロード: [#{bin_zip}](http://xyzzy-022.github.com/downloads/#{bin_zip})" if bin_zip
+    post.puts "    ([ソース](http://xyzzy-022.github.com/downloads/#{src_zip}))" if src_zip
     post.puts "  * SHA1 チェックサム: `#{sha1}`" if bin_zip
     post.puts
     issues = []
@@ -204,8 +204,8 @@ def parse_relnote
     "version" => version,
     "date" => date.gsub(/\//, "-"),
     "archive_sha1" => sha1,
-    "archive_url" => "https://xyzzy-022.github.com/downloads/#{bin_zip}",
-    "archive_src_url" => "https://xyzzy-022.github.com/downloads/#{src_zip}",
+    "archive_url" => "http://xyzzy-022.github.com/downloads/#{bin_zip}",
+    "archive_src_url" => "http://xyzzy-022.github.com/downloads/#{src_zip}",
     "release_note" => relnote_contents,
     "release_note_url" => "http://xyzzy-022.github.com/xyzzy/#{relnote_path}",
   }
