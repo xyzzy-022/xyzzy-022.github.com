@@ -1,5 +1,10 @@
-xyzzy リリースノート
-====================
+---
+layout: post
+title: xyzzy 0.2.2.243 リリースノート
+category: xyzzy
+tags: []
+---
+{% include JB/setup %}
 
   * バージョン: 0.2.2.243
   * リリース日: 2012-08-29
