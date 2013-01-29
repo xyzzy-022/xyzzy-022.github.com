@@ -176,7 +176,7 @@ task :update_index do
   src_zip = File.basename(info["archive_src_url"])
 
   index_md = File.read("index.md", :encoding => "utf-8")
-  index_md.sub!(/href="(https:\/\/github.com.*?\.zip)"/) { $&.sub($1, info["archive_url"]) }
+  index_md.sub!(/href="downloads\/xyzzy-(.*?)\.zip"/) { $&.sub($1, info["version"]) }
   index_md.sub!(/class="version">(.*?)<\/span>/) { $&.sub($1, info["version"]) }
   index_md.sub!(/class="release-note" href="(.*?)"/) { $&.sub($1, info["release_note_url"]) }
 
