@@ -8,9 +8,9 @@ tags: []
 
   * バージョン: 0.2.2.248
   * リリース日: 2013-03-29
-  * ホームページ: <http://xyzzy-022.github.com>
-  * ダウンロード: [xyzzy-0.2.2.248.zip](http://xyzzy-022.github.com/downloads/xyzzy-0.2.2.248.zip)
-    ([ソース](http://xyzzy-022.github.com/downloads/xyzzy-src-0.2.2.248.zip))
+  * ホームページ: <http://xyzzy-022.github.io>
+  * ダウンロード: [xyzzy-0.2.2.248.zip](http://xyzzy-022.github.io/downloads/xyzzy-0.2.2.248.zip)
+    ([ソース](http://xyzzy-022.github.io/downloads/xyzzy-src-0.2.2.248.zip))
   * SHA1 チェックサム: `74bab7429ee1fbe9f0f0d9b4e247efe446fce871`
 
 

@@ -132,8 +132,8 @@ task :update_relnote do
     post.puts "{% include JB/setup %}"
     post.puts
     post.puts header
-    post.puts "  * ダウンロード: [#{bin_zip}](http://xyzzy-022.github.com/downloads/#{bin_zip})" if bin_zip
-    post.puts "    ([ソース](http://xyzzy-022.github.com/downloads/#{src_zip}))" if src_zip
+    post.puts "  * ダウンロード: [#{bin_zip}](/downloads/#{bin_zip})" if bin_zip
+    post.puts "    ([ソース](/downloads/#{src_zip}))" if src_zip
     post.puts "  * SHA1 チェックサム: `#{sha1}`" if bin_zip
     post.puts
     issues = []
@@ -178,7 +178,7 @@ task :update_index do
   index_md = File.read("index.md", :encoding => "utf-8")
   index_md.sub!(/href="downloads\/xyzzy-(.*?)\.zip"/) { $&.sub($1, info["version"]) }
   index_md.sub!(/class="version">(.*?)<\/span>/) { $&.sub($1, info["version"]) }
-  index_md.sub!(/class="release-note" href="(.*?)"/) { $&.sub($1, info["release_note_url"]) }
+  index_md.sub!(/class="release-note" href="(.*?)"/) { $&.sub($1, info["release_note_url"].sub(/^.*?github.io/, "")) }
 
   open("index.md", "w:utf-8") do |w|
     w.puts index_md
@@ -204,10 +204,10 @@ def parse_relnote
     "version" => version,
     "date" => date.gsub(/\//, "-"),
     "archive_sha1" => sha1,
-    "archive_url" => "http://xyzzy-022.github.com/downloads/#{bin_zip}",
-    "archive_src_url" => "http://xyzzy-022.github.com/downloads/#{src_zip}",
+    "archive_url" => "http://xyzzy-022.github.io/downloads/#{bin_zip}",
+    "archive_src_url" => "http://xyzzy-022.github.io/downloads/#{src_zip}",
     "release_note" => relnote_contents,
-    "release_note_url" => "http://xyzzy-022.github.com/xyzzy/#{relnote_path}",
+    "release_note_url" => "http://xyzzy-022.github.io/xyzzy/#{relnote_path}",
   }
 
   [latest_info, header, body]

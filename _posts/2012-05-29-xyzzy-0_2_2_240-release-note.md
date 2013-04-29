@@ -8,9 +8,9 @@ tags: []
 
   * バージョン: 0.2.2.240
   * リリース日: 2012-05-29
-  * ホームページ: <http://xyzzy-022.github.com>
-  * ダウンロード: [xyzzy-0.2.2.240.zip](http://xyzzy-022.github.com/downloads/xyzzy-0.2.2.240.zip)
-    ([ソース](http://xyzzy-022.github.com/downloads/xyzzy-src-0.2.2.240.zip))
+  * ホームページ: <http://xyzzy-022.github.io>
+  * ダウンロード: [xyzzy-0.2.2.240.zip](http://xyzzy-022.github.io/downloads/xyzzy-0.2.2.240.zip)
+    ([ソース](http://xyzzy-022.github.io/downloads/xyzzy-src-0.2.2.240.zip))
   * SHA1 チェックサム: `118d6b0e698194e42a9222325f5a3320a3298980`
 
 
@@ -23,7 +23,7 @@ hotfix リリースです。
 
 0.2.2.239 のリリースノートは以下を参照してください。
 
-  * <http://xyzzy-022.github.com/xyzzy/2012/05/29/xyzzy-0_2_2_239-release-note/>
+  * <http://xyzzy-022.github.io/xyzzy/2012/05/29/xyzzy-0_2_2_239-release-note/>
 
 
 インストール
