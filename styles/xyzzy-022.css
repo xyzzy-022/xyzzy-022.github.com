@@ -48,26 +48,25 @@ h1, h2, h3, h4, h5, h6, .download * {
 .download {
   margin-top: 0;
   margin-bottom: 100px;
+  text-align: center;
 }
 
 .download img {
   border-style: none;
-  display: block;
   width: 96px;
-  margin-left: 40px;
 }
 
 .download .version {
-  display: block;
   font-size: 25pt;
-  margin-left: 25px;
 }
 
 .download .release-note {
-  display: block;
   font-size: 12pt;
-  margin-top: 10px;
-  margin-left: 40px;
+}
+
+.download .last-update {
+  font-size: 10pt;
+  color: gray;
 }
 
 .screenshot {
