@@ -179,7 +179,7 @@ task :update_index do
   index_md.sub!(/href="\/downloads\/xyzzy-(.*?)\.zip"/) { $&.sub($1, info["version"]) }
   index_md.sub!(/class="version">(.*?)<\/span>/) { $&.sub($1, info["version"]) }
   index_md.sub!(/class="release-note" href="(.*?)"/) { $&.sub($1, info["release_note_url"].sub(/^.*?github.io/, "")) }
-  index_md.sub!(/class="last-update">\(.*? ([\d-]+)\)<\/span>/) { $&.sub($1, info["date"]) }
+  index_md.sub!(/class="last-update">.*? ([\d-]+)<\/span>/) { $&.sub($1, info["date"]) }
 
   open("index.md", "w:utf-8") do |w|
     w.puts index_md
