@@ -1,9 +1,9 @@
 {
-  "version": "0.2.2.252",
-  "date": "2013-11-29",
-  "archive_sha1": "ea8bce65d1addccdfa800227799def735eb23866",
-  "archive_url": "http://xyzzy-022.github.io/downloads/xyzzy-0.2.2.252.zip",
-  "archive_src_url": "http://xyzzy-022.github.io/downloads/xyzzy-src-0.2.2.252.zip",
-  "release_note": "xyzzy リリースノート\n====================\n\n  * バージョン: 0.2.2.252\n  * リリース日: 2013-11-29\n  * ホームページ: <http://xyzzy-022.github.com>\n\n\nインストール\n------------\n\nインストーラはありませんので zip を展開するだけです。\nインストールから初期設定までは以下を参照してください。\n\n  * [QuickTour - XyzzyWiki]\n\n\nアップデート\n------------\n\n以下の手順で 0.2.2.235 からアップデートしてください。\n\n  1. 0.2.2.235 のバックアップ取得\n  2. 0.2.2.252 を上書き\n  3. $XYZZY/html を削除 ($XYZZY/docs/old に移動しています)\n  4. xyzzy.wxp を削除\n  5. xyzzy.exe 起動\n\nlisp/ 配下や etc/ 配下をカスタマイズしている場合は\n上書き後に再度カスタマイズをお願いします。\n\n\n機能追加\n--------\n\n  * エアロスナップでファイラのサイズを変更した場合もウィンドウサイズを記憶するようにしました (wkoiking, x022235, #406)\n\n    共通設定→ファイラで設定します（メインのウィンドウとは別設定）。\n\n    ![aerosnap-filer](https://f.cloud.github.com/assets/1522408/1645488/ae1fd1f8-5901-11e3-8b2f-42d2fe3f74fd.png)\n\n\n既知の問題\n----------\n\n  * <https://github.com/xyzzy-022/xyzzy/issues?labels=bug&state=open>\n\n\n`(provide \"xyzzy-0.2.2.252\")`\n\n  [QuickTour - XyzzyWiki]: http://xyzzy.s53.xrea.com/wiki/index.php?QuickTour\n",
-  "release_note_url": "http://xyzzy-022.github.io/xyzzy/2013/11/29/xyzzy-0_2_2_252-release-note/"
+  "version": "0.2.2.253",
+  "date": "2014-04-29",
+  "archive_sha1": "6a926be393745de811a5f69fb481bbf71590dcae",
+  "archive_url": "http://xyzzy-022.github.io/downloads/xyzzy-0.2.2.253.zip",
+  "archive_src_url": "http://xyzzy-022.github.io/downloads/xyzzy-src-0.2.2.253.zip",
+  "release_note": "xyzzy リリースノート\n====================\n\n  * バージョン: 0.2.2.253\n  * リリース日: 2014-04-29\n  * ホームページ: <http://xyzzy-022.github.com>\n\n\nインストール\n------------\n\nインストーラはありませんので zip を展開するだけです。\nインストールから初期設定までは以下を参照してください。\n\n  * [QuickTour - XyzzyWiki]\n\n\nアップデート\n------------\n\n以下の手順で 0.2.2.235 からアップデートしてください。\n\n  1. 0.2.2.235 のバックアップ取得\n  2. 0.2.2.253 を上書き\n  3. $XYZZY/html を削除 ($XYZZY/docs/old に移動しています)\n  4. xyzzy.wxp を削除\n  5. xyzzy.exe 起動\n\nlisp/ 配下や etc/ 配下をカスタマイズしている場合は\n上書き後に再度カスタマイズをお願いします。\n\n\n機能追加\n--------\n\n  * バッファ選択ダイアログのソート順を改善 (rapidexp, x022235, #414)\n\n    [共通設定]-[いろいろ]に以下の設定を追加。\n\n    ![select-buffer-options](https://cloud.githubusercontent.com/assets/1522408/2777403/d50f9e6a-cae4-11e3-8df8-157b08c14c3f.png)\n\n    * ソート方法を保存をチェックした場合は前回バッファ選択ダイアログで指定したソート順でソート\n    * 前回のソート順が保存されていない場合や、保存しないように設定している場合はデフォルトのソート順でソート\n    * また、選択ダイアログのカラム名をクリックでの降順ソートにも対応\n\n\nバグ修正\n--------\n\n  * Google 日本語入力の「カーソル周辺に入力モード表示」の位置がずれる問題を修正 (coexe, #398, #410)\n\n  * ファイラにおけるフォルダ名の変更に対応 (x022235, #408, [xyzzy:09314])\n\n    正規表現を使った複数のフォルダを指定しての名前変更が動作していなかったのを修正。\n\n\nその他\n------\n\n  * zlib 1.2.8 へ更新 (x022235, #412)\n\n  * VisualStudio 2013 に移行 (x022235, #411)\n\n\n既知の問題\n----------\n\n  * <https://github.com/xyzzy-022/xyzzy/issues?labels=bug&state=open>\n\n\n`(provide \"xyzzy-0.2.2.253\")`\n\n  [QuickTour - XyzzyWiki]: http://xyzzy.s53.xrea.com/wiki/index.php?QuickTour\n",
+  "release_note_url": "http://xyzzy-022.github.io/xyzzy/2014/04/29/xyzzy-0_2_2_253-release-note/"
 }
